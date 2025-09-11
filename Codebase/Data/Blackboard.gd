@@ -35,7 +35,7 @@ func set_data(key : String, value):
 #region Operator Overloading
 #for value = blackboard[key] functionality
 func _get(property: StringName) -> Variant:
-	return data.get(property)
+	return data.get(property,null)
 
 #for blackboard[key] = value functionality
 func _set(property: StringName, value: Variant) -> bool:
