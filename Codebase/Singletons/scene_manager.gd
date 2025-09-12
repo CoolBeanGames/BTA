@@ -14,7 +14,11 @@ var loading_scene_instance : Node
 
 ##setup our root node
 func _ready() -> void:
-	root = get_tree().root
+	await get_tree().process_frame
+	var SceneContainer = Node.new()
+	get_tree().root.add_child(SceneContainer)
+	SceneContainer.name = "Scenes"
+	root = SceneContainer
 
 ##load in a show a scene
 func load_scene(scene_to_load : PackedScene, name_for_scene : String, unload_all_scenes : bool = false, show_loading_screen : bool = false) -> Node:
@@ -31,6 +35,7 @@ func load_scene(scene_to_load : PackedScene, name_for_scene : String, unload_all
 	active_scenes[name_for_scene] = scene
 	if show_loading_screen:
 		_hide_loading_screen()
+	print("💾 loaded scene ", name_for_scene)
 	return scene
 
 ##load in and show a ui scene
@@ -41,6 +46,7 @@ func load_ui_scene(scene_to_load : PackedScene, name_for_scene : String) -> Node
 	var scene = scene_to_load.instantiate()
 	root.add_child(scene)
 	active_ui_scenes[name_for_scene] = scene
+	print("💾 loaded ui scene ", name_for_scene)
 	return scene
 
 ##show the loading screen
@@ -59,23 +65,28 @@ func _hide_loading_screen():
 ##unload a single scene by name
 func unload_scene(scene_name : String):
 	if active_scenes.has(scene_name):
-		active_scenes[scene_name].queue_free()
+		active_scenes[scene_name].free()
 		active_scenes.erase(scene_name)
+		print("🚫 unloaded scene ", scene_name)
 	else:
 		push_warning("attempted to remove scene ", scene_name, " but it does not exist in the scene manager")
 
 ##unload a single ui by name
 func unload_ui(ui_name : String):
 	if active_ui_scenes.has(ui_name):
-		active_ui_scenes[ui_name].queue_free()
+		active_ui_scenes[ui_name].free()
 		active_ui_scenes.erase(ui_name)
+		print("🚫 unloaded ui scene ", ui_name)
 	else:
 		push_warning("attempted to remove scene ", ui_name, " but it does not exist in the scene manager")
 
 
 ##remove every spawned scene from the game
 func unload_all():
-	for n in active_scenes:
-		active_scenes[n].queue_free()
-	for u in active_ui_scenes:
-		active_ui_scenes[u].queue_free()
+	print("🟥 unloading all scenes")
+	for n in active_scenes.keys():
+		unload_scene(n)
+	for u in active_ui_scenes.keys():
+		unload_ui(u)
+	active_scenes.clear()
+	active_ui_scenes.clear()

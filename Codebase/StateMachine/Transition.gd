@@ -8,9 +8,9 @@ class_name Transition
 ##the condition required for this transition
 var condition : Callable
 ##the state we transition to if it returns true
-@export var to_state : State
+@export var to_state : String
 ##the state we need to be in for this transition to be valid
-@export var from_state : State
+@export var from_state : String
 ##if this is true then from state is ignored
 @export var is_global : bool = false
 ##how important is this transition
@@ -19,8 +19,7 @@ var condition : Callable
 @export var state_machine : StateMachine
 
 ##setup the transition and assign a condition
-func _init(_condition : Callable, _state_machine : StateMachine, _to_state : State,_from_state : State, _is_global : bool = false, _priority : int = 0) -> void:
-	condition = _condition
+func _init(_state_machine : StateMachine, _to_state : String,_from_state : String, _is_global : bool = false, _priority : int = 0) -> void:
 	to_state = _to_state
 	priority = _priority
 	from_state = _from_state
@@ -29,15 +28,7 @@ func _init(_condition : Callable, _state_machine : StateMachine, _to_state : Sta
 
 ##evaluate this transition
 func eval(current_state : State) -> bool:
-	if condition == null or not condition.is_valid():
-		push_warning("A transition failed as its condition is null or invalid")
-		return false
-	if condition.get_argument_count() != 1:
-		push_warning("A Transition failed because it has more or less than 1 argument (which must be a State Machine)")
-		return false
-	if is_global or from_state == current_state:
-		var result = condition.call(state_machine)
-		if result is bool:
-			return result
-		push_warning("A transitions condition returned a non-boolean value, so it failed")
 	return false
+
+func is_correct_state() -> bool:
+	return from_state == state_machine.states.find_key(state_machine.currentState)

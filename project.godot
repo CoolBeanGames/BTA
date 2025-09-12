@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://Codebase/Singletons/scene_manager.gd"
+SignalBus="*res://Codebase/SignalBus/SignalBus.gd"
 GameManager="*res://Codebase/Singletons/game_manager.gd"
 
 [file_customization]

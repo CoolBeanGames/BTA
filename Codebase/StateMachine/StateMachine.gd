@@ -16,7 +16,6 @@ var bb : blackboard = blackboard.new()
 
 ##set up our initial state
 func initialize(starting_state : String) -> void:
-	
 	currentState = states[starting_state]
 	currentState.on_enter()
 
@@ -42,12 +41,15 @@ func check_transitions():
 				current_transition = t
 	
 	#if we found a transition then change
-	if found_transition and current_transition!= null:
+	if found_transition and current_transition!= null and states.has(current_transition.to_state):
 		currentState.on_exit()
-		currentState = current_transition.to_state
+		currentState = states[current_transition.to_state]
 		currentState.on_enter()
 
 ##run tick on our current state
 func process():
+	if currentState == null:
+		push_warning("State machine has no current state set, aborting")
+		return
 	check_transitions()
 	currentState.tick()
