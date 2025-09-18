@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 ##actions can be accessed based on string name
 func add_actions():
 	_add_action("confirm",Key.KEY_E)
+	_add_action("sprint",Key.KEY_SHIFT)
 
 ##adds all needed axis (scalar) values to track
 func add_all_axis():

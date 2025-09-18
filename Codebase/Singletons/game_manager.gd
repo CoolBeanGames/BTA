@@ -6,24 +6,24 @@ var data : blackboard = blackboard.new()
 var fsm : StateMachine
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+#func _ready() -> void:
 	#wait one frame
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	
 	#loadin and initialize all data
-	fsm = StateMachine.new()
+	#fsm = StateMachine.new()
 	
 	#turn on processing for this node
-	set_process(true)
+	#set_process(true)
 	
 	#add transitions to th
-	addTransitions()
-	addStates()
-	fsm.initialize("Preload")
+	#addTransitions()
+	#addStates()
+	#fsm.initialize("Preload")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	fsm.process()
+#func _process(delta: float) -> void:
+	#fsm.process()
 
 ##add the states to our machine
 func addStates():
