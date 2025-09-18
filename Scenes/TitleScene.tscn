@@ -33,6 +33,18 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35504, 1.4317, 0)
 size = Vector3(11.8094, 3.8634, 1)
 
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7950667, 0, 0)
+
+[node name="Door" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10687846, 0.68991876, 0.1558361)
+size = Vector3(1.7564789, 2.8171682, 0.9012451)
+
+[node name="Door2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10548872, 0.65969896, 0.60284233)
+operation = 2
+size = Vector3(1.6490196, 2.7567286, 0.13327026)
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49573, -0.365234, 1.33295)
 size = Vector3(12.4783, 0.269531, 3.66589)
@@ -78,5 +90,10 @@ text = "Quit"
 [node name="Node" type="Node" parent="."]
 script = ExtResource("1_j8exe")
 aSet = ExtResource("2_ryprb")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62785995, 0.58800614, 0.88032377)
+radius = 0.2680664
+height = 1.6972656
 
 [connection signal="button_down" from="CanvasLayer/VBoxContainer/Button" to="Node" method="_on_button_button_down"]
