@@ -1,8 +1,8 @@
 ##this is a base class for a state
 ##actual states should override this 
 ##as it stands it wont actually do anything
-extends Resource
-class_name State
+@abstract
+class_name State extends Resource
 
 ##the parent state machien that owns this state
 @export var state_machine : StateMachine

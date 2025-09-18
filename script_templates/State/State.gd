@@ -2,7 +2,7 @@
 # meta-description: A Base class for defining a FSM state
 # meta-default: true
 # meta-space-indent: 4
-extends State
+class_name replace_me extends State
 
 ##called once when entering the state and then not again until it has finished
 func on_enter():

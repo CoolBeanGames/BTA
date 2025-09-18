@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbgjbggshuarb"]
+[gd_scene load_steps=6 format=3 uid="uid://cbgjbggshuarb"]
+
+[ext_resource type="Script" uid="uid://dyeuh767povg7" path="res://audiotest.gd" id="1_j8exe"]
+[ext_resource type="Resource" uid="uid://btlewup38i840" path="res://sample_audio.tres" id="2_ryprb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4iaox"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -71,3 +74,9 @@ text = "Options"
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_j8exe")
+aSet = ExtResource("2_ryprb")
+
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/Button" to="Node" method="_on_button_button_down"]

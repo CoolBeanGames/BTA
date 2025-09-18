@@ -2,8 +2,8 @@
 ##esentially if its condition (a callable) returns true
 ##the transition succeeds ad we transition
 ##otherwsie it fails and we dont transition
-extends Resource
-class_name Transition
+@abstract
+class_name Transition extends Resource
 
 ##the condition required for this transition
 var condition : Callable
@@ -27,8 +27,7 @@ func _init(_state_machine : StateMachine, _to_state : String,_from_state : Strin
 	state_machine = _state_machine
 
 ##evaluate this transition
-func eval(current_state : State) -> bool:
-	return false
+@abstract func eval(current_state : String) -> bool
 
 func is_correct_state() -> bool:
 	return from_state == state_machine.states.find_key(state_machine.currentState)

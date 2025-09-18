@@ -2,8 +2,7 @@
 ##all of the actual code will be inside 
 ##the overriden states but this class
 ##contains the data for the basics
-extends Resource
-class_name StateMachine
+class_name StateMachine extends Resource
 
 ##the state we are currently processing
 @export var currentState : State
@@ -35,7 +34,7 @@ func check_transitions():
 	
 	#loop through transitions
 	for t in transitions:
-		if t.eval(currentState):
+		if t.eval(currentState.to_string()):
 			found_transition = true
 			if current_transition == null or current_transition.priority < t.priority:
 				current_transition = t
