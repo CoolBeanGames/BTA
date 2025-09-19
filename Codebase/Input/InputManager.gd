@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 func add_actions():
 	_add_action("confirm",Key.KEY_E)
 	_add_action("sprint",Key.KEY_SHIFT)
+	_add_mouse_action("shoot")
+	_add_action("reload",Key.KEY_R)
 
 ##adds all needed axis (scalar) values to track
 func add_all_axis():
@@ -34,6 +36,11 @@ func add_all_axis():
 func _add_action(name: String , key : Key):
 	var input : input_action = input_action.new()
 	input.key = key
+	actions[name] = input
+
+func _add_mouse_action(name : String):
+	var input : input_action_mouse = input_action_mouse.new()
+	input.key = KEY_0
 	actions[name] = input
 
 ##adds a single axis

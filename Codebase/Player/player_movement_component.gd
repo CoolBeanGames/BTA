@@ -28,7 +28,6 @@ func _process(_delta):
 	axis_value = move_axis.context.get_axis_value()
 	lerp_move(_delta)
 	plr.move_and_slide()
-	print("mag ", plr.velocity.length())
 	target_velocity = Vector3(0,0,0)
 
 func on_move(value : Vector2):
@@ -42,9 +41,7 @@ func lerp_move(delta : float):
 
 func start_sprint():
 	move_speed = plr.bb._get("run_speed")
-	print("start running ", move_speed)
 
 func stop_sprint():
 	move_speed = plr.bb._get("walk_speed")
-	print("end running ", move_speed)
 	
