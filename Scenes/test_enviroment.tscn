@@ -40,8 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, -0.01473999, -0
 shape = SubResource("BoxShape3D_qty5g")
 
 [node name="Camera3D" type="Camera3D" parent="CSGBox3D/StaticBody3D/CollisionShape3D"]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3851624, 2.3679855, 2.3066711)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.141536, 6.526348)
 
 [node name="PhantomCameraHost" type="Node" parent="CSGBox3D/StaticBody3D/CollisionShape3D/Camera3D"]
 process_priority = 300

@@ -8,9 +8,8 @@ class_name State extends Resource
 @export var state_machine : StateMachine
 
 ##set this states machine
-func _init(_state_machine : StateMachine = null) -> void:
+func _init(_state_machine : StateMachine) -> void:
 	state_machine = _state_machine
-
 
 ##called once when entering the state and then not again until it has finished
 func on_enter():

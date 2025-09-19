@@ -23,9 +23,12 @@ func _process(delta: float) -> void:
 ##actions can be accessed based on string name
 func add_actions():
 	_add_action("confirm",Key.KEY_E)
+<<<<<<< HEAD
 	_add_action("sprint",Key.KEY_SHIFT)
 	_add_mouse_action("shoot")
 	_add_action("reload",Key.KEY_R)
+=======
+>>>>>>> parent of 2667162 ([6] Implement player state machine and movement/look components)
 
 ##adds all needed axis (scalar) values to track
 func add_all_axis():

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 [gd_scene load_steps=23 format=3 uid="uid://dfwvu0chheicj"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://dfwvu0chheicj"]
+>>>>>>> parent of 2667162 ([6] Implement player state machine and movement/look components)
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_4ntmi"]
 [ext_resource type="Script" uid="uid://chqj13gmslwu0" path="res://Codebase/Player/player.gd" id="1_btcbx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_btcbx"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://rw5tpsp0lo8l" path="res://Codebase/StateMachine/StateMachine.gd" id="2_x3vf3"]
 [ext_resource type="Script" uid="uid://dkeed0gw4wb1k" path="res://Codebase/StateMachine/State.gd" id="3_apopc"]
 [ext_resource type="Script" uid="uid://phmkbmqohojx" path="res://Codebase/Player/States/player_roaming_state.gd" id="4_5htga"]
@@ -45,6 +50,8 @@ states = Dictionary[String, ExtResource("3_apopc")]({
 "typing": SubResource("Resource_b1ygp")
 })
 metadata/_custom_type_script = "uid://rw5tpsp0lo8l"
+=======
+>>>>>>> parent of 2667162 ([6] Implement player state machine and movement/look components)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gwnis"]
 radius = 0.15
@@ -53,11 +60,8 @@ height = 0.6
 [sub_resource type="Resource" id="Resource_k53q1"]
 script = ExtResource("2_btcbx")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("look_component", "move_component")]
+[node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_btcbx")
-fsm = SubResource("Resource_7emwf")
-look_component = NodePath("Components/PlayerLookComponent")
-move_component = NodePath("Components/PlayerMovementComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017448813, 0)
@@ -68,6 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23798203, 0)
 script = ExtResource("1_4ntmi")
 tween_resource = SubResource("Resource_k53q1")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+<<<<<<< HEAD
 
 [node name="RayCast3D" type="RayCast3D" parent="CollisionShape3D/PhantomCamera3D"]
 target_position = Vector3(0, 0, -100000)
@@ -93,3 +98,5 @@ camera = NodePath("../../CollisionShape3D/PhantomCamera3D")
 script = ExtResource("13_p5o4e")
 current_gun = ExtResource("14_gu6f8")
 raycaster = NodePath("../../CollisionShape3D/PhantomCamera3D/RayCast3D")
+=======
+>>>>>>> parent of 2667162 ([6] Implement player state machine and movement/look components)
